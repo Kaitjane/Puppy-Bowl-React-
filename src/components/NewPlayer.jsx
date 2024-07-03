@@ -32,7 +32,14 @@ const NewPlayer = ({ history }) => {
         value={breed}
         onChange={(e) => setBreed(e.target.value)}
       />
-      <button type="submit">Add Player</button>
+      <input
+        type="text"
+        placeholder="imageUrl"
+        value={imageUrl}
+        onChange={(e) => setImage(e.target.value)}
+      />
+
+      <button type="submit">Add Player!</button>
       {error && <p>{error}</p>}
     </form>
   );

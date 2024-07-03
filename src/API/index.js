@@ -1,9 +1,9 @@
-const COHORT = "2401-FTB-ET-WEB-PT";
-const baseUrl = `https://fsa-puppy-bowl.herokuapp.com/api/${COHORT}`;
+const COHORT = "2403-FTB-ET-WEB-PT";
+const baseUrl = `https://fsa-puppy-bowl.herokuapp.com/api/${COHORT}/players`;
 
 export async function fetchAllPlayers() {
   try {
-    const response = await fetch(`${baseUrl}/players`);
+    const response = await fetch(`${baseUrl}`);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -13,7 +13,7 @@ export async function fetchAllPlayers() {
 
 export async function createNewPlayer(newPlayer) {
   try {
-    const response = await fetch(`${baseUrl}/players/${playerId}`, {
+    const response = await fetch(`${baseUrl}/${playerId}`, {
       method: "POST",
       headers: "Content-Type",
     });
@@ -27,31 +27,18 @@ export async function createNewPlayer(newPlayer) {
 
 export async function fetchPlayerByID(playerId) {
   try {
-    const response = await fetch(`${baseUrl}/players/${playerId}`);
+    const response = await fetch(`${baseUrl}/${playerId}`);
     const result = await response.json();
     return result;
   } catch (error) {
     console.error(error);
     throw new Error("Failed to fetch player details");
-  }
-}
-
-export async function deletePlayer(playerId) {
-  try {
-    const response = await fetch(`${baseUrl}/players/${playerId}`, {
-      method: "DELETE",
-    });
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.error(error);
-    throw new Error("Failed to delete player");
   }
 }
 
 export async function fetchPlayerDetails(playerId) {
   try {
-    const response = await fetch(`${baseUrl}/players/${playerId}`);
+    const response = await fetch(`${baseUrl}/${playerId}`);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -59,3 +46,9 @@ export async function fetchPlayerDetails(playerId) {
     throw new Error("Failed to fetch player details");
   }
 }
+
+/**export const {
+  useFetchCreateNewPlayer,
+  useAddPlayerByID,
+  useFetchPlayerDetails,
+} = puppyBowlApi; **/

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { fetchAllPlayers, deletePlayer } from "../API";
-import "./Home.css";
+import { fetchAllPlayers } from "../API";
+import "./home.css";
 
 const AllPlayers = () => {
   const [players, setPlayers] = useState([]);
@@ -34,20 +34,6 @@ const AllPlayers = () => {
     }, []);
   };
 
-  const handleDeletePlayer = async (id) => {
-    try {
-      const response = await deletePlayer(id);
-      if (response.success) {
-        // Remove the deleted player from the list
-        setPlayers(players.filter((player) => player.id !== id));
-      } else {
-        console.error("Failed to delete player:", response.error);
-      }
-    } catch (error) {
-      console.error("Failed to delete player:", error);
-    }
-  };
-
   const playersToDisplay = searchParams
     ? players.filter((player) =>
         player.name.toLowerCase().includes(searchParams.toLowerCase())
@@ -61,7 +47,6 @@ const AllPlayers = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          {/* Add other nav links as needed */}
         </ul>
       </nav>
       <div className="content">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { fetchAllPlayers } from "../API";
-import "./Home.css";
+import "./home.css";
 
 const Home = () => {
   const [players, setPlayers] = useState([]);
@@ -38,32 +38,29 @@ const Home = () => {
       <p className="description">Click below to navigate:</p>
       <div className="buttons-container">
         <Link to="/players" className="animated-button">
-          View Players
+          View Players Here
         </Link>
         <Link to="/players/new" className="animated-button">
           Add New Player
         </Link>
       </div>
-      <div className="featured-players">
-        <h2 className="featured-description">Featured Players</h2>
-        <div className="slideshow-container">
-          {players.map((player, index) => (
-            <div
-              key={player.id}
-              className={`player-card ${
-                index === currentPlayerIndex ? "active" : ""
-              }`}
-            >
-              <img src={player.imageUrl} alt={player.name} />
-              <div className="player-details">
-                <p className="player-name">
-                  <Link to={`/players/${player.id}`}>{player.name}</Link>
-                </p>
-                <p className="player-position">{player.position}</p>
-              </div>
+      <div className="slideshow-container">
+        {players.map((player, index) => (
+          <div
+            key={player.id}
+            className={`player-card ${
+              index === currentPlayerIndex ? "active" : ""
+            }`}
+          >
+            <img src={player.imageUrl} alt={player.name} />
+            <div className="player-details">
+              <p className="player-name">
+                <Link to={`/players/${player.id}`}>{player.name}</Link>
+              </p>
+              <p className="player-position">{player.position}</p>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

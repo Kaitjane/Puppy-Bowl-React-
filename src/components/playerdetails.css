@@ -1,0 +1,32 @@
+.player-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.player-details-title {
+  font-size: 26px;
+  color: blanchedalmond;
+}
+
+.player-details {
+  display: flex;
+  align-items: center;
+}
+
+.player-details-info {
+  text-align: center;
+  margin-left: 20px;
+}
+
+.player-details-name {
+  font-size: 20px;
+  color: #1e3799;
+}
+
+.player-details-breed {
+  font-size: 16px;
+  color: #7f8c8d;
+}
